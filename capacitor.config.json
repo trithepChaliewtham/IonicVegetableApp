@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "CRUDAPP",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

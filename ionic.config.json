@@ -1,0 +1,7 @@
+{
+  "name": "CRUDAPP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
