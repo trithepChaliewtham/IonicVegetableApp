@@ -11,6 +11,19 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'dbservice',
+    loadChildren: () => import('./dbservice/dbservice.module').then( m => m.DbservicePageModule)
+  },
+  {
+    path: 'vegetables',
+    loadChildren: () => import('./vegatables/vegatables.module').then( m => m.VegatablesPageModule)
+  },
+
 ];
 
 @NgModule({

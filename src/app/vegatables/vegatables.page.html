@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>vegatables</ion-title>
+  </ion-toolbar>
+</ion-header>
+<center>
+    <ion-searchbar
+      placeholder="เช่น ชื่อฟาร์ม ชื่อผัก"
+      [(ngModel)]="searchVeg"
+      showCancelButton="focus"
+      expand=""
+      style="width:50%;"
+      animate
+    >
+    </ion-searchbar>
+  </center>
+<ion-content>
+  <ion-list style="margin-left:4rem;" *ngFor="let veg of this.stdobj | filter:searchVeg ">
+      <ion-item>
+          <ion-avatar style="height: 100px; width: 100px;">
+            <img src="{{veg.url}}">
+          </ion-avatar>
+          <ion-list style="margin-left: 1rem;">
+            <div> ชื่อฟาร์ม : {{veg.name}}</div>
+            <div> ผักขึ้นชื่อ : {{veg.popularVeg}}</div>
+          </ion-list>
+      </ion-item>
+  </ion-list>
+  <a href="/dbservice">
+    <ion-button color="primary" style="margin-top : 1rem; margin-left: 1rem;">
+        <ion-icon name="caret-back-outline"></ion-icon> Back
+    </ion-button>
+  </a>
+</ion-content>

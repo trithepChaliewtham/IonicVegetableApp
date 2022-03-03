@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Farms List</ion-title>
+  </ion-toolbar>
+</ion-header>
+<a href="/" style="text-decoration:none;">
+    <ion-button
+    >
+
+      <ion-icon name="caret-back-outline"></ion-icon>
+      <p style="color: white;">Homepage</p>
+    </ion-button>
+    </a>
+<ion-content>
+  <center>
+
+
+    <ion-searchbar
+      placeholder="เช่น ชื่อฟาร์ม ชื่อผัก"
+      [(ngModel)]="searchTerm"
+      showCancelButton="focus"
+      expand=""
+      style="width:50%;"
+      animate
+    >
+    </ion-searchbar>
+
+    <ion-item-sliding *ngFor="let tmp of this.stdobj | filter:searchTerm" >
+      .... your code ....
+    </ion-item-sliding>
+
+
+
+  </center>
+  <ion-list style="background-color: whitesmoke;">
+    <ion-list-header><h1 > Farms list </h1></ion-list-header>
+      <ion-item >
+          <ion-avatar style="height: 100px; width: 100px;">
+            <img src="{{tmp.avatarurl}}">
+          </ion-avatar>
+          <ion-label >
+                <center> <p style="color:black;font-size: 20px"> {{tmp.name}}</p></center>
+                <div style="margin-left:1rem;">
+                  <p >  <u style="text-decoration: none; color: black;font-size:15px">Popular Vegetable in farm : {{tmp.popularVeg}}</u></p>
+                  <p>  <u style="text-decoration: none; color: black;font-size:15px">Address : {{tmp.address}}</u> </p>
+                  <p>  <u style="text-decoration: none; color: black;font-size:15px">Rating : {{tmp.rating}}</u> </p>
+                  <ion-icon name="thumbs-up-outline" style="cursor:pointer;" (click)="pressStarRatingUp(tmp)"></ion-icon>
+                  <ion-icon name="thumbs-down-outline" style="cursor:pointer;margin-left:1rem" (click)="pressStarRatingDown(tmp)"></ion-icon>
+                </div>
+          </ion-label>
+      <ion-button color="danger" (click)="presentConfirmDelete(tmp.getid)">
+          <ion-icon name="trash"></ion-icon> Delete</ion-button
+      >
+      <ion-button color="primary" (click)="presentPromptEdit(tmp)">
+          <ion-icon name="create-outline"></ion-icon> Edit</ion-button
+      >
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+  <center>
+    <ion-button
+      (click)="presentPromptAdd(tmp)"
+      expand=""
+      color="primary"
+      icon-start
+    >
+      <ion-icon name="add"></ion-icon>
+      Add Farm
+    </ion-button>
+    <br/>
+    <br/>
+    <br/>
+    <a href="/vegetables" style="text-decoration:none;">
+    <ion-button
+      (click)="presentPromptAdd(tmp)"
+      expand=""
+      color="secondary"
+      icon-start
+    >
+
+      <ion-icon  name="add"></ion-icon>
+      <p style="color: white;">ดูผักทั้งหมด</p>
+    </ion-button>
+    </a>
+  </center>
+</ion-content>
